@@ -6,6 +6,7 @@ import Info from "./Info";
 import { Context } from "../../store/appContext";
 
     const Fav = () => {
+
         const { store, actions } = useContext(Context);
 
         useEffect( () => {
@@ -19,7 +20,7 @@ import { Context } from "../../store/appContext";
                 console.log(index, personajes.name)
                 return <li>{personajes.name} <button onClick={()=> actions.deleteElement(index)}>Eliminar</button></li>
             })}
-        </ul></div>)
+        </ul></div>);
 
 
 

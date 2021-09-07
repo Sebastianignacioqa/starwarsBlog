@@ -4,8 +4,10 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
+
 const Card = (props) => {
 
+    
 
     return (<div>
         <div className="card bg-white">
@@ -18,7 +20,7 @@ const Card = (props) => {
             </div>
             <div className="card-footer text-center bg-white">
                 <div class="col-md-12">
-                <Link className="btn btn-dark me-2" to="/info"> Sigue leyendo</Link><button className="btn btn-outline-warning"><FontAwesomeIcon icon={faHeart} /></button>
+                <Link className="btn btn-dark me-2" to="/info"> Sigue leyendo</Link><button className="btn btn-outline-warning" onClick><FontAwesomeIcon icon={faHeart} /></button>
                 </div>
             </div>
         </div>
