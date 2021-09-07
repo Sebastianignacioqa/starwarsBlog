@@ -4,7 +4,8 @@ export const getState = ({ setStore, getStore, getActions }) => {
 
     return {
         store: {
-            personajes: []
+            personajes: [],
+            favoritos: []
             
         },
         actions: {
@@ -16,18 +17,25 @@ export const getState = ({ setStore, getStore, getActions }) => {
             },
                 
         
-        deleteElement: (index) => {
-            console.log(index , "Este console.log es desde actions");
-            const store = getStore();
-            setStore({personajes: store.personajes.filter((personaje, i)=> {
-                if(index === i){
+        deleteElement: (nombre) => {
+            const store = getStore()
+            setStore({favoritos: store.favoritos.filter((i, index)=> {
+                if(index === nombre){
                     return false
                 } else {
                    return true
                 }
-            })})}
+            })})},
+
+        addFav: (index) => {
+            console.log(index, "Probando agregar a favoritos")
+            const store = getStore()
+            setStore({favoritos: store.favoritos.concat(index) })
+
+        }
+
+
+        }
+
         }
     };
-}
-
-export default Fav

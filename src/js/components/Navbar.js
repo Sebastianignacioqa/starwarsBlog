@@ -4,11 +4,15 @@ import './Navbar.css';
 import Card from "./Card";
 import { useContext } from "react";
 import { Context } from "../store/appContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faHeart, faTrash } from "@fortawesome/free-solid-svg-icons";
 
 
 const Navbar = () => {
 
     <script src="https://kit.fontawesome.com/b031a3fb72.js" crossorigin="anonymous"></script>
+
+    const { store, actions } = useContext(Context);
 
     return (<nav className="navbar navbar-expand-lg navbar-light bg-dark">
         <div className="container">
@@ -22,15 +26,14 @@ const Navbar = () => {
                 </ul>
                 <div className="d-flex">
                     <div className="nav-item dropdown">
-                        <Link className="nav-link dropdown-toggle btn bg-secondary text-dark rounded" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <Link className="nav-link dropdown-toggle btn bg-warning bg-opacity-75 text-dark rounded" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Favoritos</Link>
                         <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li className="dropdown-item">Action</li>
-                            <li className="dropdown-item">Action 2</li>
+                            {store.favoritos.map((item, index) => { 
+                                return <li className="dropdown-item" key={index}>{item}<button className="btn btn-danger w-25 h-25 ps-2 ms-3" onClick={() => actions.deleteElement(index)}><FontAwesomeIcon icon={faTrash}/></button></li>})}
                         </ul>
-
                     </div>
-            </div>
+               </div>
         </div>
         </div>
     </nav>)

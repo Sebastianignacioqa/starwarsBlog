@@ -45,7 +45,7 @@ const Home = () => {
             
     }, [])
 
-
+    
 
     return( <div>
         {loading ? <div class="alert alert-dark" role="alert">
